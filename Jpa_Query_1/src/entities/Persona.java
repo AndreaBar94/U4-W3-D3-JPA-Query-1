@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.Set;
 import java.util.UUID;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -12,12 +13,14 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
 @Table(name = "persona")
 @Getter
 @Setter
+@NoArgsConstructor
 
 public class Persona {
 	
@@ -29,7 +32,7 @@ public class Persona {
 	private String email;
 	private LocalDate dataDiNascita;
 	private Sesso genere;
-	@OneToMany
+	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "partecipazione", referencedColumnName = "id")
 	private Set<Partecipazione> listaPartecipazioni;
 	

@@ -43,30 +43,33 @@ public class Application {
 		Evento cena1 = new Evento("Cena", LocalDate.now(), "Cena di beneficenza", TipoEvento.PRIVATO, 30, loc1, new HashSet<>());
 		Evento cena2 = new Evento("Cena 2", LocalDate.now(), "Cena di beneficenza", TipoEvento.PRIVATO, 30, loc1, new HashSet<>());
 
-		pDAO.save(maria);
-		pDAO.save(aldo);
-		
+//		pDAO.save(maria);
+//		pDAO.save(aldo);
+//		
 		Partecipazione p1 = new Partecipazione(aldo, cena1, Stato.CONFERMATA);
 		Partecipazione p2 = new Partecipazione(aldo, cena2, Stato.CONFERMATA);
 		
 		
 		Set<Partecipazione> lp1 = new HashSet<>();
+//		
+//		cena1.getPartecipazioni().add(p1);
+//		cena2.getPartecipazioni().add(p2);
+//		
+//		p1.setEvento(cena1);
+//		p2.setEvento(cena2);
+//		p1.setPersona(maria);
+//		p2.setPersona(aldo);
+//		
+//		lDAO.save(loc1);
 		
-		cena1.getPartecipazioni().add(p1);
-		cena2.getPartecipazioni().add(p2);
-		
-		p1.setEvento(cena1);
-		p2.setEvento(cena2);
-		p1.setPersona(maria);
-		p2.setPersona(aldo);
-		
-		lDAO.save(loc1);
-		
+		//logger.info("GUARDA QUI: "+ p1.getEvento());
+		sd.delete(41);
+		sd.delete(42);
 		em.getTransaction().begin();
-		em.persist(cena1);
-		em.persist(cena2);
-		em.persist(p1);
-		em.persist(p1);
+//		em.persist(cena1);
+//		em.persist(cena2);
+//		em.persist(p1);
+//		em.persist(p1);
 		em.getTransaction().commit();
 
 		sd.refresh(4);

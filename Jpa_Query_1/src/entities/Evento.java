@@ -3,6 +3,7 @@ package entities;
 import java.time.LocalDate;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -11,12 +12,14 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
 @Table(name = "evento")
 @Getter
 @Setter
+@NoArgsConstructor
 
 public class Evento {
 	
@@ -30,13 +33,11 @@ public class Evento {
 	private TipoEvento tipoEvento;
 	private int numeroMassimoPartecipanti;
 	
-	@OneToMany(mappedBy = "evento")
+	@OneToMany(mappedBy = "evento", cascade = CascadeType.ALL)
 	private Set<Partecipazione> partecipazioni;
 	
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.MERGE)
 	private Location location;
-	
-	public Evento() {}
 	
 	public Evento(String titolo, LocalDate dataEvento, String descrizione, TipoEvento tipo, int numeroMassimoPartecipanti, Location location, Set<Partecipazione> partecipazioni) {
 		super();
