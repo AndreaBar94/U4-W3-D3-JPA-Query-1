@@ -51,7 +51,7 @@ public class Application {
 		
 		
 		Set<Partecipazione> lp1 = new HashSet<>();
-	
+//	
 		cena1.getPartecipazioni().add(p1);
 		cena2.getPartecipazioni().add(p2);
 		
@@ -63,8 +63,8 @@ public class Application {
 
 		
 //		logger.info("GUARDA QUI: "+ p1.getEvento());
-//		sd.delete(41);
-//		sd.delete(42);
+//		sd.delete(47);
+//		sd.delete(48);
 		em.getTransaction().begin();
 		em.persist(cena1);
 		em.persist(cena2);

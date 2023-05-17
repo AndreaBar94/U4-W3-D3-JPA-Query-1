@@ -2,7 +2,6 @@ package entities;
 
 import java.util.UUID;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -26,9 +25,11 @@ public class Partecipazione {
 	@GeneratedValue
 	private UUID id;
 	private Stato stato;
-	@ManyToOne(cascade = CascadeType.ALL)
+	
+	@ManyToOne
 	@JoinColumn(name = "evento", referencedColumnName = "id")
 	private Evento evento;
+	
 	@ManyToOne
 	@JoinColumn(name = "persona", referencedColumnName = "id")
 	private Persona persona;

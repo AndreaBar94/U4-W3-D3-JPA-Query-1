@@ -32,8 +32,8 @@ public class Persona {
 	private String email;
 	private LocalDate dataDiNascita;
 	private Sesso genere;
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name = "partecipazione", referencedColumnName = "id")
+	
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "persona")
 	private Set<Partecipazione> listaPartecipazioni;
 	
 	
