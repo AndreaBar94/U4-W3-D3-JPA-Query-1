@@ -1,7 +1,6 @@
 package app;
 
 import java.time.LocalDate;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -45,13 +44,14 @@ public class Application {
 
 //		pDAO.save(maria);
 //		pDAO.save(aldo);
-//		
+//		lDAO.save(loc1);
+		
 		Partecipazione p1 = new Partecipazione(aldo, cena1, Stato.CONFERMATA);
 		Partecipazione p2 = new Partecipazione(aldo, cena2, Stato.CONFERMATA);
 		
 		
 		Set<Partecipazione> lp1 = new HashSet<>();
-//		
+	
 //		cena1.getPartecipazioni().add(p1);
 //		cena2.getPartecipazioni().add(p2);
 //		
@@ -59,12 +59,12 @@ public class Application {
 //		p2.setEvento(cena2);
 //		p1.setPersona(maria);
 //		p2.setPersona(aldo);
-//		
-//		lDAO.save(loc1);
+
+
 		
-		//logger.info("GUARDA QUI: "+ p1.getEvento());
-		sd.delete(41);
-		sd.delete(42);
+//		logger.info("GUARDA QUI: "+ p1.getEvento());
+//		sd.delete(41);
+//		sd.delete(42);
 		em.getTransaction().begin();
 //		em.persist(cena1);
 //		em.persist(cena2);
